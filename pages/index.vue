@@ -29,7 +29,6 @@ onMounted(async () => {
   setInterval(() => {
     if (!carouselRef.value) return;
 
-    console.log(carouselRef.value);
     if (carouselRef.value.page === carouselRef.value.pages) {
       return carouselRef.value.select(0);
     }

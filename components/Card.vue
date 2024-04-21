@@ -3,7 +3,7 @@
     <a href="#" class="block">
       <div class="aspect-w-1 aspect-h-1">
         <img
-          src="https://www.apple.com/v/watch/bl/images/overview/select/product_s9__b8uw2qgcgw1y_xlarge.png"
+          src="/images/tissot-seastar-1000-chronograph-quartz-black-dial-mens-watch-t1204171705102-t1204171705102-removebg-preview.png"
           alt="iPhone 15 Pro Max 256GB White Titanium"
           class="h-full" />
       </div>

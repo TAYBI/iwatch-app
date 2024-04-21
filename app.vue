@@ -13,7 +13,6 @@ useHead({
       content:
         "Discover the latest iWatch - the ultimate watch from Apple. Stay connected, track your fitness, and express your style.",
     },
-    { name: "theme-color", content: "#ffffff" },
   ],
   link: [
     {
@@ -22,10 +21,6 @@ useHead({
       href: "/MaterialSymbolsAodWatchRounded.ico",
     },
   ],
-  bodyAttrs: {
-    class: "bg-gray-100",
-  },
-  script: [{ innerHTML: "console.log('Hello world')" }],
 });
 </script>
 
@@ -34,5 +29,14 @@ useHead({
 body {
   background-color: white;
   color: black;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  @apply transition-opacity duration-300 ease-in-out;
+}
+.fade-enter,
+.fade-leave-to {
+  @apply opacity-0;
 }
 </style>
