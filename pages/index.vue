@@ -1,7 +1,180 @@
 <script lang="ts" setup></script>
 
 <template>
-  <cards />
+  <!-- <cards /> -->
+  <!-- gallery -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-1">
+    <div
+      class="flex flex-col items-center bg-gray-50 rounded p-2 row-span-2 pt-20">
+      <div class="text-center">
+        <h2 class="mb-3 text-2xl mx-auto font-bold text-dark w-1/2">
+          OLEVS Leather Multifunctional Waterproof Luminous
+        </h2>
+        <p class="mb-5 text-xl text-base text-body-color font-semibold">
+          480 DH
+        </p>
+        <a href="#" class="block mb-4 text-md font-semibold text-blue">
+          More info <Icon name="material-symbols:chevron-right" />
+        </a>
+      </div>
+      <img src="/images/image-1.png" alt="watch" class="max-h-72" />
+    </div>
+    <div class="bg-gray-50 rounded p-2">
+      <div
+        class="flex flex-col lg:flex-row items-center bg-gray-50 rounded p-2 row-span-2 py-8">
+        <div class="text-center">
+          <h2 class="mb-3 text-2xl mx-auto font-bold text-dark w-1/2">
+            OLEVS Leather Multifunctional Waterproof Luminous
+          </h2>
+          <p class="mb-5 text-xl text-base text-body-color font-semibold">
+            480 DH
+          </p>
+          <a href="#" class="block mb-4 text-md font-semibold text-blue">
+            More info <Icon name="material-symbols:chevron-right" />
+          </a>
+        </div>
+        <img src="/images/image-2.png" alt="watch" class="w-52" />
+      </div>
+    </div>
+    <div class="bg-gray-50 rounded p-2">
+      <div
+        class="flex flex-col lg:flex-row items-center bg-gray-50 rounded p-2 row-span-2 py-8">
+        <div class="text-center">
+          <h2 class="mb-3 text-2xl mx-auto font-bold text-dark w-1/2">
+            OLEVS Leather Multifunctional Waterproof Luminous
+          </h2>
+          <p class="mb-5 text-xl text-base text-body-color font-semibold">
+            480 DH
+          </p>
+          <a href="#" class="block mb-4 text-md font-semibold text-blue">
+            More info <Icon name="material-symbols:chevron-right" />
+          </a>
+        </div>
+        <img src="/images/image-3.png" alt="watch" class="w-52" />
+      </div>
+    </div>
+  </div>
+
+  <!--  -->
+  <div class="container mx-auto">
+    <div class="w-full px-4">
+      <div class="mx-auto my-[60px] max-w-[510px] text-center">
+        <span class="text-primary mb-2 block text-lg font-semibold"> </span>
+        <h2
+          class="text-dark mb-3 text-3xl leading-[1.208] font-bold sm:text-4xl md:text-[40px]">
+          New OLEVS Watches
+        </h2>
+        <p class="text-body-color text-base mb-2">
+          Acheter | Maintenant disponible
+        </p>
+        <a href="#" class="block mb-4 text-md font-semibold text-blue">
+          More info <Icon name="material-symbols:chevron-right" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!--  -->
+  <div class="container mx-auto">
+    <div class="w-full px-4">
+      <div class="mx-auto my-[60px] max-w-[510px] text-center">
+        <span class="text-primary mb-2 block text-lg font-semibold"> </span>
+        <h2
+          class="text-dark mb-3 text-3xl leading-[1.208] font-bold sm:text-4xl md:text-[40px]">
+          New OLEVS Watches
+        </h2>
+        <p class="text-body-color text-base mb-2">
+          Acheter | Maintenant disponible
+        </p>
+        <a href="#" class="block mb-4 text-md font-semibold text-blue">
+          More info <Icon name="material-symbols:chevron-right" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!--  -->
+  <div class="container mx-auto">
+    <div class="w-full px-4">
+      <div class="mx-auto my-[60px] max-w-[510px] text-center">
+        <span class="text-primary mb-2 block text-lg font-semibold"> </span>
+        <h2
+          class="text-dark mb-3 text-3xl leading-[1.208] font-bold sm:text-4xl md:text-[40px]">
+          New OLEVS Watches
+        </h2>
+        <p class="text-body-color text-base mb-2">
+          Acheter | Maintenant disponible
+        </p>
+        <a href="#" class="block mb-4 text-md font-semibold text-blue">
+          More info <Icon name="material-symbols:chevron-right" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section class="pt-20 pb-12 lg:py-[90px] dark:bg-dark">
+    <div class="container mx-auto">
+      <div class="flex flex-wrap gap-y-8">
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="rounded-lg bg-gray-50 p-10 md:px-7 xl:px-10 text-center">
+            <div
+              class="bg-[#dd052c] mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
+              <Icon
+                name="material-symbols:headset-mic-outline-sharp"
+                width="36"
+                height="36"
+                color="white" />
+            </div>
+            <h4 class="text-dark mb-[14px] text-2xl font-semibold">
+              Centre d'appel
+            </h4>
+            <p class="text-body-color dark:text-dark-6">
+              We dejoy working with discerning clients, people for whom qualuty,
+              service, integrity & aesthetics.
+            </p>
+          </div>
+        </div>
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="rounded-lg bg-gray-50 p-10 md:px-7 xl:px-10 text-center">
+            <div
+              class="bg-primary mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
+              <Icon
+                name="ic:round-whatsapp"
+                width="36"
+                height="36"
+                color="white" />
+            </div>
+            <h4 class="text-dark mb-[14px] text-2xl font-semibold">
+              Refreshing Design
+            </h4>
+            <p class="text-body-color dark:text-dark-6">
+              We dejoy working with discerning clients, people for whom qualuty,
+              service, integrity & aesthetics.
+            </p>
+          </div>
+        </div>
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="rounded-lg bg-gray-50 p-10 md:px-7 xl:px-10 text-center">
+            <div
+              class="bg-[#dd052c] mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
+              <Icon
+                name="mdi:truck-delivery"
+                width="36"
+                height="36"
+                color="white" />
+            </div>
+            <h4 class="text-dark mb-[14px] text-2xl font-semibold">
+              Refreshing Design
+            </h4>
+            <p class="text-body-color dark:text-dark-6">
+              We dejoy working with discerning clients, people for whom qualuty,
+              service, integrity & aesthetics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <style scoped></style>
