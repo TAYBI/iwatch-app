@@ -295,9 +295,7 @@ onMounted(async () => {
                 height="36"
                 color="white" />
             </div>
-            <h4 class="text-dark mb-[14px] text-2xl font-semibold">
-              Refreshing Design
-            </h4>
+            <h4 class="text-dark mb-[14px] text-2xl font-semibold">whatsapp</h4>
             <p class="text-body-color dark:text-dark-6">
               We dejoy working with discerning clients, people for whom qualuty,
               service, integrity & aesthetics.
@@ -314,9 +312,7 @@ onMounted(async () => {
                 height="36"
                 color="white" />
             </div>
-            <h4 class="text-dark mb-[14px] text-2xl font-semibold">
-              Refreshing Design
-            </h4>
+            <h4 class="text-dark mb-[14px] text-2xl font-semibold">Delivery</h4>
             <p class="text-body-color dark:text-dark-6">
               We dejoy working with discerning clients, people for whom qualuty,
               service, integrity & aesthetics.
