@@ -62,7 +62,7 @@
           </div>
           <button
             class="w-full text-white bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-            @click="signup()">
+            @click="signup">
             Sign Up
           </button>
         </div>
@@ -72,7 +72,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import axios from "axios";
 
 const name = ref();
 const lastname = ref();
@@ -81,5 +81,30 @@ const password = ref();
 const router = useRouter();
 const showPassword = ref(false);
 
-const signup = async () => {};
+const signup = async () => {
+  try {
+    const response = await axios.post(
+      "http://localhost:8080/api/user",
+      {
+        email: email.value,
+        password: password.value,
+        firstName: name.value,
+        lastName: lastname.value,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (response.status === 200) {
+      const user = response.data.token;
+      router.push("/sign-in");
+    }
+  } catch (error) {
+    console.log(error);
+    router.push("/sign-up");
+  }
+};
 </script>

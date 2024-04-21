@@ -37,7 +37,7 @@
           </div>
           <button
             class="w-full text-white bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-            @click="login()">
+            @click="login">
             Log In
           </button>
         </div>
@@ -47,12 +47,40 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { useRouter } from "vue-router";
+import axios from "axios";
+import { useGlobalStore } from "@/stores/global";
 
-const email = ref();
-const password = ref();
 const router = useRouter();
+const email = ref("");
+const password = ref("");
 const showPassword = ref(false);
 
-const login = async () => {};
+const login = async () => {
+  try {
+    const response = await axios.post(
+      "https://iwatch-api.onrender.com/api/auth",
+      {
+        email: email.value,
+        password: password.value,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (response.status === 200) {
+      const token = response.data.token;
+      localStorage.setItem("token", token);
+      const contentStore = useGlobalStore();
+      await contentStore.getCurrentUser();
+      router.push("/");
+    }
+  } catch (error) {
+    console.log(error);
+    router.push("/sign-in");
+  }
+};
 </script>
