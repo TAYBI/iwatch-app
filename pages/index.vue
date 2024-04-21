@@ -1,13 +1,68 @@
 <script lang="ts" setup>
 const items = ref();
+
+const images = [
+  {
+    img: "/images/1.png",
+    text: "iPhone 15 Pro | Pro Max",
+  },
+  {
+    img: "/images/2.png",
+    text: "iPhone 15 | 15 Plus",
+  },
+  {
+    img: "/images/3.jpg",
+    text: "Apple Watch Ultra 2",
+  },
+  {
+    img: "/images/4.jpg",
+    text: "Apple Watch Series 9",
+  },
+];
+
+const carouselRef = ref();
+
 onMounted(async () => {
   const res = await fetch(`https://iwatch-api.onrender.com/api/products`);
   items.value = await res.json();
+
+  setInterval(() => {
+    if (!carouselRef.value) return;
+
+    console.log(carouselRef.value);
+    if (carouselRef.value.page === carouselRef.value.pages) {
+      return carouselRef.value.select(0);
+    }
+
+    carouselRef.value.next();
+  }, 3000);
 });
 </script>
 
 <template>
   <!-- <cards /> -->
+  <UCarousel
+    ref="carouselRef"
+    :items="images"
+    :ui="{ item: 'basis-full' }"
+    class="overflow-hidden mb-4 h-96"
+    indicators>
+    <template #default="{ item }">
+      <img
+        :src="item.img"
+        class="h-96 object-center object-cover"
+        draggable="false" />
+    </template>
+
+    <template #indicator="{ onClick, page, active }">
+      <UButton
+        :label="images[page - 1].text"
+        :variant="active ? 'solid' : 'solid'"
+        :color="active ? 'gray' : 'black'"
+        class="rounded-full min-w-6 justify-center bg-gray"
+        @click="onClick(page)" />
+    </template>
+  </UCarousel>
   <!-- gallery -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-1">
     <div
@@ -61,7 +116,7 @@ onMounted(async () => {
     </div>
   </div>
 
-  <!--  -->
+  <!--carousels  -->
   <div class="container mx-auto">
     <div class="w-full px-4">
       <div class="mx-auto mt-[60px] mb-8 max-w-[510px] text-center">
@@ -208,6 +263,7 @@ onMounted(async () => {
     </UCarousel>
   </div>
 
+  <!-- contact -->
   <section class="pt-20 pb-12 lg:py-[90px] dark:bg-dark">
     <div class="container mx-auto">
       <div class="flex flex-wrap gap-y-8">
