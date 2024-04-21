@@ -1,4 +1,10 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const items = ref();
+onMounted(async () => {
+  const res = await fetch(`https://iwatch-api.onrender.com/api/products`);
+  items.value = await res.json();
+});
+</script>
 
 <template>
   <!-- <cards /> -->
@@ -58,7 +64,7 @@
   <!--  -->
   <div class="container mx-auto">
     <div class="w-full px-4">
-      <div class="mx-auto my-[60px] max-w-[510px] text-center">
+      <div class="mx-auto mt-[60px] mb-8 max-w-[510px] text-center">
         <span class="text-primary mb-2 block text-lg font-semibold"> </span>
         <h2
           class="text-dark mb-3 text-3xl leading-[1.208] font-bold sm:text-4xl md:text-[40px]">
@@ -72,6 +78,36 @@
         </a>
       </div>
     </div>
+  </div>
+  <div class="container mx-auto border rounded">
+    <UCarousel
+      :items="items"
+      :ui="{
+        indicators: { wrapper: 'relative bottom-0 my-4' },
+      }"
+      indicators
+      :prev-button="{
+        color: 'gray',
+        icon: 'i-heroicons-arrow-left-20-solid',
+      }"
+      :next-button="{
+        color: 'gray',
+        icon: 'i-heroicons-arrow-right-20-solid',
+      }"
+      class="rounded overflow-hidden">
+      <template #default="{ item }">
+        <Card :product="item" />
+      </template>
+
+      <template #indicator="{ onClick, page, active }">
+        <UButton
+          :variant="active ? 'solid' : 'outline'"
+          size="2xs"
+          color="gray"
+          class="rounded-full min-w-6 justify-center"
+          @click="onClick(page)" />
+      </template>
+    </UCarousel>
   </div>
 
   <!--  -->
@@ -92,6 +128,36 @@
       </div>
     </div>
   </div>
+  <div class="container mx-auto border rounded">
+    <UCarousel
+      :items="items"
+      :ui="{
+        indicators: { wrapper: 'relative bottom-0 my-4' },
+      }"
+      indicators
+      :prev-button="{
+        color: 'gray',
+        icon: 'i-heroicons-arrow-left-20-solid',
+      }"
+      :next-button="{
+        color: 'gray',
+        icon: 'i-heroicons-arrow-right-20-solid',
+      }"
+      class="rounded overflow-hidden">
+      <template #default="{ item }">
+        <Card :product="item" />
+      </template>
+
+      <template #indicator="{ onClick, page, active }">
+        <UButton
+          :variant="active ? 'solid' : 'outline'"
+          size="2xs"
+          color="gray"
+          class="rounded-full min-w-6 justify-center"
+          @click="onClick(page)" />
+      </template>
+    </UCarousel>
+  </div>
 
   <!--  -->
   <div class="container mx-auto">
@@ -110,6 +176,36 @@
         </a>
       </div>
     </div>
+  </div>
+  <div class="container mx-auto border rounded">
+    <UCarousel
+      :items="items"
+      :ui="{
+        indicators: { wrapper: 'relative bottom-0 my-4' },
+      }"
+      indicators
+      :prev-button="{
+        color: 'gray',
+        icon: 'i-heroicons-arrow-left-20-solid',
+      }"
+      :next-button="{
+        color: 'gray',
+        icon: 'i-heroicons-arrow-right-20-solid',
+      }"
+      class="rounded overflow-hidden">
+      <template #default="{ item }">
+        <Card :product="item" />
+      </template>
+
+      <template #indicator="{ onClick, page, active }">
+        <UButton
+          :variant="active ? 'solid' : 'outline'"
+          size="2xs"
+          color="gray"
+          class="rounded-full min-w-6 justify-center"
+          @click="onClick(page)" />
+      </template>
+    </UCarousel>
   </div>
 
   <section class="pt-20 pb-12 lg:py-[90px] dark:bg-dark">
