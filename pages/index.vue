@@ -3,20 +3,20 @@ const items = ref();
 
 const images = [
   {
-    img: "/images/1.png",
-    text: "iPhone 15 Pro | Pro Max",
+    img: "https://www.aviandco.com/media/magefan_blog/1_9.jpg",
+    text: "Rolex Submariner",
   },
   {
-    img: "/images/2.png",
-    text: "iPhone 15 | 15 Plus",
+    img: "https://www.analogshift.com/cdn/shop/products/Omega_Speedmaster_145_022-69ST_AS01438_1.jpg?v=1458742610&width=1445",
+    text: "Omega Speedmaster Professional",
   },
   {
-    img: "/images/3.jpg",
-    text: "Apple Watch Ultra 2",
+    img: "https://monochrome-watches.com/wp-content/uploads/2023/01/TAG-Heuer-Carrera-Chronograph-Year-of-the-Rabbit-BN2A1L-FC6521-3.jpg",
+    text: "TAG Heuer Carrera",
   },
   {
-    img: "/images/4.jpg",
-    text: "Apple Watch Series 9",
+    img: "https://images.pexels.com/photos/9978926/pexels-photo-9978926.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    text: "Patek Philippe Nautilus",
   },
 ];
 
@@ -50,7 +50,7 @@ onMounted(async () => {
     <template #default="{ item }">
       <img
         :src="item.img"
-        class="h-96 object-center object-cover"
+        class="h-96 w-full object-center object-cover"
         draggable="false" />
     </template>
 

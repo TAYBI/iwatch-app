@@ -3,9 +3,9 @@
     <a href="#" class="block">
       <div class="aspect-w-1 aspect-h-1">
         <img
-          src="https://istyle.ma/media/catalog/product/cache/small_image/240x240/beff4985b56e3afdbeabfc89641a4582/i/p/iphone_15_pro_max_white_titanium_pdp_image_position-1__en-me_3_4.jpg"
+          src="https://www.apple.com/v/watch/bl/images/overview/select/product_s9__b8uw2qgcgw1y_xlarge.png"
           alt="iPhone 15 Pro Max 256GB White Titanium"
-          class="object-cover w-full h-full" />
+          class="h-full" />
       </div>
     </a>
     <div class="p-4">
