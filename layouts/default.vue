@@ -2,10 +2,9 @@
 
 <template>
   <NavBar />
-  <div>
-    Layout: default
+  <main>
     <slot />
-  </div>
+  </main>
   <Footer />
 </template>
 

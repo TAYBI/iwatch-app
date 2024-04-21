@@ -1,5 +1,5 @@
 <template>
-  <div><p>Navbar</p></div>
+  <div class="bg-black bg-opacity-88 text-white"><p>Navbar</p></div>
 </template>
 
 <script setup></script>

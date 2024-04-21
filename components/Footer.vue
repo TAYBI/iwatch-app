@@ -1,5 +1,5 @@
 <template>
-  <div>Footer</div>
+  <div class="bg-gray-50">Footer</div>
 </template>
 
 <script setup></script>
