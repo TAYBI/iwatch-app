@@ -72,7 +72,8 @@
               class="absolute z-50 mt-2 px-2 sm:px-0 lg:px-0 right-96 border rounded-xl transition-opacity duration-300 ease-in-out">
               <div class="bg-white shadow-lg rounded-lg p-2">
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-                  <div
+                  <NuxtLink
+                    to="/watches-liste"
                     class="text-center cursor-pointer hover:bg-gray-50 hover:border p-1 rounded-xl">
                     <img
                       class="rounded-t-xl object-center object-cover max-h-[180px] mx-auto"
@@ -87,10 +88,11 @@
                         in Oystersteel and gold
                       </p>
                     </div>
-                  </div>
+                  </NuxtLink>
                   <!-- End Col -->
 
-                  <div
+                  <NuxtLink
+                    to="/watches-liste"
                     class="text-center cursor-pointer hover:bg-gray-50 hover:border p-1 rounded-xl">
                     <img
                       class="rounded-t-xl object-center object-cover max-h-[180px] mx-auto"
@@ -105,10 +107,11 @@
                         Moonwatch Professiona
                       </p>
                     </div>
-                  </div>
+                  </NuxtLink>
                   <!-- End Col -->
 
-                  <div
+                  <NuxtLink
+                    to="/watches-liste"
                     class="text-center cursor-pointer hover:bg-gray-50 hover:border p-1 rounded-xl">
                     <img
                       class="rounded-t-xl object-center object-cover max-h-[180px] mx-auto"
@@ -123,7 +126,7 @@
                         Calibre 5 Automatic Men
                       </p>
                     </div>
-                  </div>
+                  </NuxtLink>
                   <!-- End Col -->
                 </div>
               </div>
