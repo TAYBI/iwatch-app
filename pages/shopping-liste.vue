@@ -13,14 +13,18 @@
             :key="i">
             <img
               alt="mountain"
-              class="w-20 rounded-md"
-              :src="`${item.imageUrl}`" />
+              class="w-[132px] rounded-md h-full"
+              :src="`/images/tissot-seastar-1000-chronograph-quartz-black-dial-mens-watch-t1204171705102-t1204171705102-removebg-preview.png`" />
             <div id="body" class="flex flex-col ml-5 py-3">
               <h4 id="name" class="text-xl font-semibold mb-2">
                 {{ item.name }}
+                <span
+                  class="py-0.5 px-1.5 rounded-full text-xs font-medium border">
+                  {{ item.count }}
+                </span>
               </h4>
               <p id="job" class="text-gray-800 mt-2">
-                {{ item.description }}
+                {{ item.brand }}
               </p>
               <div class="flex mt-5">
                 <p class="ml-3">{{ item.price }}</p>
@@ -38,11 +42,42 @@
   </section>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const store = useGlobalStore();
-const cart = ref(store.$state.cart);
+const cart = ref();
+import { useRouter } from "vue-router";
+const router = useRouter();
 
-const PlaceOrder = () => {};
+onMounted(() => {
+  const productCounts = {};
+  store.$state.cart.forEach((product) => {
+    if (!productCounts[product._id]) {
+      productCounts[product._id] = 0;
+    }
+    productCounts[product._id]++;
+  });
+
+  const uniqueProducts = [];
+  store.$state.cart.forEach((product) => {
+    if (!uniqueProducts.some((p) => p._id === product._id)) {
+      uniqueProducts.push({
+        ...product,
+        count: productCounts[product._id],
+      });
+    }
+  });
+
+  cart.value = uniqueProducts;
+});
+const PlaceOrder = () => {
+  if (store.$state.currentUser) {
+    alert("You're order has been placed");
+    store.$state.cart = [];
+    router.push("/");
+  } else {
+    router.push("/sign-in");
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>
