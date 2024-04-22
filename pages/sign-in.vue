@@ -40,6 +40,9 @@
             @click="login">
             Log In
           </button>
+          <small>
+            <NuxtLink to="/sign-up" class="text-blue mt-3">sign up?</NuxtLink>
+          </small>
         </div>
       </div>
     </div>

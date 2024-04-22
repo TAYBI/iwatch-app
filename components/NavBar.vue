@@ -19,7 +19,37 @@
       <!-- Button Group -->
       <div
         class="flex items-center gap-x-2 ms-auto py-1 md:ps-6 md:order-3 md:col-span-3">
+        <UDropdown
+          v-if="store.$state.currentUser"
+          :items="items"
+          :ui="{ item: { disabled: 'cursor-text select-text' } }"
+          :popper="{ placement: 'bottom-start' }">
+          <UAvatar src="/images/avatar.png" />
+
+          <template #account="{ item }">
+            <div class="text-left">
+              <p>Signed in as</p>
+              <p class="truncate font-medium text-gray-900 dark:text-white">
+                {{ item.label }}
+              </p>
+            </div>
+          </template>
+
+          <template #item="{ item }">
+            <span class="truncate">{{ item.label }}</span>
+
+            <UIcon
+              :name="item.icon"
+              class="flex-shrink-0 h-4 w-4 text-gray-400 dark:text-gray-500 ms-auto" />
+          </template>
+        </UDropdown>
+        <!-- <UAvatar
+          v-if="store.$state.currentUser"
+          src="/images/avatar.png"
+          alt="Avatar" /> -->
         <button
+          v-else
+          @click="Loggin"
           type="button"
           class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none">
           <Icon
@@ -276,6 +306,9 @@ const open = ref(false);
 const panelCount = ref(store.$state.cart.length);
 import { useRouter } from "vue-router";
 const router = useRouter();
+const user = ref();
+
+const items = ref([]);
 
 watch(
   () => store.$state.cart,
@@ -285,12 +318,58 @@ watch(
 );
 
 onMounted(() => {
-  console.log(panelCount.value);
+  if (store.$state.currentUser) {
+    user.value = store.$state.currentUser.user;
+    items.value = [
+      [
+        {
+          label: `${user.value.email}`,
+          slot: "account",
+          disabled: true,
+        },
+      ],
+      [
+        {
+          label: "Settings",
+          icon: "i-heroicons-cog-8-tooth",
+        },
+      ],
+      [
+        {
+          label: "Documentation",
+          icon: "i-heroicons-book-open",
+        },
+        {
+          label: "Changelog",
+          icon: "i-heroicons-megaphone",
+        },
+        {
+          label: "Status",
+          icon: "i-heroicons-signal",
+        },
+      ],
+      [
+        {
+          label: "Sign out",
+          icon: "i-heroicons-arrow-left-on-rectangle",
+          click: () => {
+            if (process.client) localStorage.clear();
+            router.push("/");
+            window.location.reload();
+          },
+        },
+      ],
+    ];
+  }
 });
 
 const goToShoppingListe = () => {
   if (panelCount.value > 0) {
     router.push("/shopping-liste");
   }
+};
+
+const Loggin = () => {
+  router.push("/sign-in");
 };
 </script>
