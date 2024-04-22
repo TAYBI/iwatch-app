@@ -19,7 +19,8 @@
     "primevue": "^3.51.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
-    "vue3-click-away": "^1.2.4"
+    "vue3-click-away": "^1.2.4",
+    "zod": "^3.23.0"
   },
   "devDependencies": {
     "nuxt-icon": "^0.6.10",

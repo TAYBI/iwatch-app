@@ -6,12 +6,13 @@
       aria-label="Global">
       <div class="md:col-span-3">
         <!-- Logo -->
-        <a
+        <NuxtLink
+          to="/"
           class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
           href="../templates/creative-agency/index.html"
           aria-label="Preline">
           Logo
-        </a>
+        </NuxtLink>
         <!-- End Logo -->
       </div>
 
@@ -28,6 +29,7 @@
             height="18" />
         </button>
         <button
+          @click="goToShoppingListe"
           type="button"
           class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-full">
           <Icon
@@ -272,6 +274,8 @@
 const store = useGlobalStore();
 const open = ref(false);
 const panelCount = ref(store.$state.cart.length);
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 watch(
   () => store.$state.cart,
@@ -283,4 +287,10 @@ watch(
 onMounted(() => {
   console.log(panelCount.value);
 });
+
+const goToShoppingListe = () => {
+  if (panelCount.value > 0) {
+    router.push("/shopping-liste");
+  }
+};
 </script>
