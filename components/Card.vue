@@ -25,6 +25,7 @@
           >Plus d'info</a
         >
         <button
+          @click="addToPanle"
           class="text-sm text-white bg-blue-800 px-4 py-2 rounded-full hover:bg-blue-900 focus:outline-none focus:bg-blue-600">
           Ajouter au panier
         </button>
@@ -34,6 +35,9 @@
 </template>
 
 <script setup>
+import { useGlobalStore } from "@/stores/global";
+const store = useGlobalStore();
+
 const { product } = defineProps({
   product: {
     type: Object,
@@ -49,6 +53,13 @@ const { product } = defineProps({
     },
   },
 });
+
+const addToPanle = () => {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  store.$state.cart = cart;
+};
 </script>
 
 <style lang="scss" scoped></style>

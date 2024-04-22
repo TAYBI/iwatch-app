@@ -4,8 +4,15 @@ import axios from "axios";
 export const useGlobalStore = defineStore("global", {
   state: () => ({
     currentUser: null,
+    cart: [],
   }),
   actions: {
+    onInit() {
+      if (process.client) {
+        const storedCart = localStorage.getItem("cart");
+        this.cart = storedCart ? JSON.parse(storedCart) : [];
+      }
+    },
     async getCurrentUser() {
       const token = localStorage.getItem("token");
 

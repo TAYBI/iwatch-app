@@ -36,8 +36,9 @@
             width="24"
             height="24" />
           <span
+            v-if="panelCount > 0"
             class="py-0.5 px-1.5 rounded-full text-xs font-medium bg-blue-50 border border-blue-200 text-blue-600 -ml-2.5 -mt-2.5">
-            4
+            {{ panelCount }}
           </span>
         </button>
 
@@ -268,5 +269,18 @@
 //     </div>
 //   </div>
 // </nav>
+const store = useGlobalStore();
 const open = ref(false);
+const panelCount = ref(store.$state.cart.length);
+
+watch(
+  () => store.$state.cart,
+  (cart) => {
+    panelCount.value = cart.length;
+  }
+);
+
+onMounted(() => {
+  console.log(panelCount.value);
+});
 </script>
