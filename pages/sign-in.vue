@@ -35,11 +35,12 @@
               </div>
             </div>
           </div>
-          <button
+          <UButton block :loading="loading" @click="login"> Log In </UButton>
+          <!-- <button
             class="w-full text-white bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             @click="login">
             Log In
-          </button>
+          </button> -->
           <small>
             <NuxtLink to="/sign-up" class="text-blue mt-3">sign up?</NuxtLink>
           </small>
@@ -54,12 +55,14 @@ import { useRouter } from "vue-router";
 import axios from "axios";
 import { useGlobalStore } from "@/stores/global";
 
+const loading = ref(false);
 const router = useRouter();
 const email = ref("");
 const password = ref("");
 const showPassword = ref(false);
 
 const login = async () => {
+  loading.value = true;
   try {
     const response = await axios.post(
       "https://iwatch-api.onrender.com/api/auth",
@@ -79,6 +82,7 @@ const login = async () => {
       localStorage.setItem("token", token);
       const contentStore = useGlobalStore();
       await contentStore.getCurrentUser();
+      loading.value = false;
       router.push("/");
     }
   } catch (error) {

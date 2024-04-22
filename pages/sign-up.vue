@@ -60,11 +60,13 @@
                 required />
             </div>
           </div>
+          <UButton block :loading="loading" @click="signup">Sign Up</UButton>
+          <!-- 
           <button
             class="w-full text-white bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             @click="signup">
             Sign Up
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -80,11 +82,14 @@ const email = ref();
 const password = ref();
 const router = useRouter();
 const showPassword = ref(false);
+const loading = ref(false);
 
 const signup = async () => {
+  loading.value = true;
+
   try {
     const response = await axios.post(
-      "http://localhost:8080/api/user",
+      "https://iwatch-api.onrender.com/api/user",
       {
         email: email.value,
         password: password.value,
@@ -100,6 +105,7 @@ const signup = async () => {
 
     if (response.status === 200) {
       const user = response.data.token;
+      loading.value = false;
       router.push("/sign-in");
     }
   } catch (error) {

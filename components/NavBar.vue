@@ -308,7 +308,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const user = ref();
 
-const items = ref([]);
+const items = ref();
 
 watch(
   () => store.$state.cart,
@@ -317,13 +317,13 @@ watch(
   }
 );
 
-onMounted(() => {
-  if (store.$state.currentUser) {
-    user.value = store.$state.currentUser.user;
+watch(
+  () => store.$state.currentUser,
+  (user) => {
     items.value = [
       [
         {
-          label: `${user.value.email}`,
+          label: `${user.user.email}`,
           slot: "account",
           disabled: true,
         },
@@ -360,6 +360,15 @@ onMounted(() => {
         },
       ],
     ];
+
+    console.log(user.user.email);
+  }
+);
+
+onMounted(() => {
+  console.log(store.$state.currentUser);
+  if (store.$state.currentUser) {
+    user.value = store.$state.currentUser.user;
   }
 });
 
